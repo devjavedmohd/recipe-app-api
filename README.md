@@ -50,3 +50,47 @@ psycopg2
         - postgresql-dev
         - musl-dev
     - found by searching and trial and error
+
+
+Problem with Docker compose
+- Using depends_on ensures service starts
+    - doesn't ensure application is running
+
+Database RAct Condition:
+
+Docker services timeline
+
+Database                  Django App
+__________________________________________________
+Service starting          
+                          Service starting
+Postgres starting         App starting
+                          Connect to DB
+
+Solution to avoid crash django app while postgres starting
+- Make Django "wait for db"
+
+Database starting > Django starting > Postgres starting > app starting > wait for db > checking postgres start or not once database start is done > app start
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
