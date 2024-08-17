@@ -20,3 +20,7 @@ jobs:
         run: docker-compose run --rm app sh -c "python manage.py test" # unit test our project
       - name: Linting
         run: docker-compose run --rm app sh -c "flake8" # lint our project
+      # - name: Build
+      #   run: docker-compose build # build our project
+      # - name: Push
+      #   run: docker-compose push # push our project to docker hub
