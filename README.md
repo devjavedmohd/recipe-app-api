@@ -7,7 +7,7 @@ Recipe App API
 
 # docker-compose up
 
-
+# docker-compose run --rm app sh -c "python manage.py test"
 
 Connect database to django server using docker:
 
@@ -27,10 +27,10 @@ so django connect to database
 used in local development or production environment both
 it means single place to configure our application
 
-easy to pull environment in pythong 
+easy to pull environment in python
     os.environ.get()
 
-Psycopg2 is django to connect to database module used in the pythong to postgresql
+Psycopg2 is django to connect to database module used in the python to postgresql
 
 psycopg2-binary
     - ok for development (local development)
@@ -62,7 +62,7 @@ Docker services timeline
 
 Database                  Django App
 __________________________________________________
-Service starting          
+Service starting
                           Service starting
 Postgres starting         App starting
                           Connect to DB
@@ -74,9 +74,32 @@ Database starting > Django starting > Postgres starting > app starting > wait fo
 
 
 
+What is the Django admin: Its GUI
 
 
+How to enable Django admin?
+Enable per model
+Inside admin.py
+ - admin.site.register(recipe)
 
+Customize
+- Create a class based off ModelAdmin or UserAdmin
+Override/set class variables
+
+Changing list of objects.
+
+Add/update page
+- fieldsets: control layout of page
+- readonly_fields: fields that cannot be changed
+
+Add page:
+add_fieldsets: fields displayed only on add page
+
+Setup Django Admin
+
+
+----------------------------------------------------------------
+Django admin unit tests:
 
 
 
